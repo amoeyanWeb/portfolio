@@ -1,0 +1,1382 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="google" content="notranslate" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;900&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- ===== Fixed Mobile Header ===== -->
+    <header class="mobile-header">
+      <div class="mobile-avatar">
+        <img src="Mammad.jpg" alt="Mohammad Reza Amoeyan" />
+      </div>
+      <div class="mobile-header-text">
+        <div class="mobile-header-name">Mohammad Reza Amoeyan</div>
+        <div class="mobile-header-title">
+          Electronics Engineer | Project Manager | Artist
+        </div>
+      </div>
+      <button
+        class="lang-switcher"
+        id="langBtn"
+        onclick="switchLang()"
+        title="Switch Language"
+      >
+        EN
+      </button>
+    </header>
+
+    <style>
+      .lang-switcher {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(201, 168, 76, 0.7);
+        background: rgba(20, 18, 14, 0.65);
+        color: rgba(201, 168, 76, 0.95);
+        font-family: "Playfair Display", serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        flex-shrink: 0;
+        margin-left: 6px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(8px);
+        transition:
+          transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 0.22s ease,
+          background 0.2s ease,
+          color 0.2s ease;
+        user-select: none;
+        outline: none;
+        z-index: 9999;
+      }
+      .lang-switcher:hover {
+        transform: scale(1.13);
+        box-shadow:
+          0 6px 22px rgba(201, 168, 76, 0.55),
+          0 2px 12px rgba(0, 0, 0, 0.55);
+        background: rgba(201, 168, 76, 0.18);
+        color: #f0d97a;
+        border-color: rgba(201, 168, 76, 1);
+      }
+      .lang-switcher:active {
+        transform: scale(1.1);
+      }
+
+      .desktop-lang-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 14px 0 8px;
+      }
+
+      .desktop-lang-switcher {
+        margin-right: 0;
+        width: 42px;
+        height: 42px;
+        font-size: 12px;
+      }
+    </style>
+    <script>
+      // ====================== LANGUAGE SWITCHER - FINAL FIXED ======================
+      const _langs = ["FA", "EN", "TR"];
+      const _files = ["index_fa.html", "index.html", "index_tr.html"];
+
+      function getCurrentLangIndex() {
+        const path = window.location.pathname.toLowerCase();
+        if (path.includes("index_fa.html") || path.includes("fa")) return 0;
+        if (path.includes("index_tr.html") || path.includes("tr")) return 2;
+        return 1;
+      }
+
+      let _cur = getCurrentLangIndex();
+
+      // تابع اصلی — با force روی window
+      window.switchLang = function () {
+        console.log(
+          "%c🔥 switchLang CALLED - Current:",
+          "color: red; font-size: 15px",
+          _langs[_cur],
+        );
+
+        _cur = (_cur + 1) % 3;
+
+        console.log(
+          "%c→ Going to:",
+          "color: lime; font-size: 15px",
+          _langs[_cur],
+        );
+
+        // بروزرسانی دکمه قبل از رفتن
+        const mobileBtn = document.getElementById("langBtn");
+        const desktopBtn = document.getElementById("langBtnDesktop");
+        if (mobileBtn) mobileBtn.textContent = _langs[_cur];
+        if (desktopBtn) desktopBtn.textContent = _langs[_cur];
+
+        setTimeout(() => {
+          console.log(
+            "%c🚀 NAVIGATING TO:",
+            "color: cyan; font-size: 15px",
+            _files[_cur],
+          );
+          window.location.href = _files[_cur];
+        }, 200);
+      };
+
+      function updateLangButtons() {
+        _cur = getCurrentLangIndex();
+        console.log(
+          "%c📍 LOADED:",
+          "color: gold; font-size: 14px",
+          _langs[_cur],
+        );
+      }
+
+      document.addEventListener("DOMContentLoaded", updateLangButtons);
+      window.addEventListener("load", updateLangButtons);
+    </script>
+    <!-- ===== Fixed Mobile Footer (Social Media) ===== -->
+    <footer class="mobile-footer">
+      <div class="mobile-footer-label">Social Media</div>
+      <div class="mobile-footer-socials">
+        <a
+          href="https://wa.me/00905312691609"
+          target="_blank"
+          class="social-btn whatsapp"
+          title="WhatsApp"
+        >
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a
+          href="https://youtube.com/@Amoeyan46"
+          target="_blank"
+          class="social-btn youtube"
+          title="YouTube"
+        >
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a
+          href="https://github.com/yourusername"
+          target="_blank"
+          class="social-btn github"
+          title="GitHub"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+        <a
+          href="https://linkedin.com/in/yourprofile"
+          target="_blank"
+          class="social-btn linkedin"
+          title="LinkedIn"
+        >
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="tel:00905312691609" class="social-btn phone" title="Phone">
+          <i class="fa fa-phone"></i>
+        </a>
+        <a
+          href="mailto:Amoeyan.music@gmail.com"
+          class="social-btn email"
+          title="Email"
+        >
+          <i class="fa fa-envelope"></i>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Fixed Background (SVG graphic + optional photo) -->
+    <div class="bg-fixed">
+      <img src="bg4.jpg" alt="background" class="bg-image" />
+      <div class="bg-overlay"></div>
+    </div>
+
+    <!-- Left Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <div class="profile-section">
+          <div class="avatar-ring">
+            <img
+              src="Mammad.jpg"
+              alt="Mohammad Reza Amoeyan"
+              class="avatar-img"
+            />
+          </div>
+
+          <h2 class="profile-name">Mohammad Reza Amoeyan</h2>
+          <p class="profile-title">
+            Electronics Engineer | Project Manager | Artist
+          </p>
+          <!-- Desktop Language Switcher -->
+          <div class="desktop-lang-wrapper">
+            <button
+              class="lang-switcher desktop-lang-switcher"
+              id="langBtnDesktop"
+              onclick="switchLang()"
+              title="Switch Language"
+            >
+              TR
+            </button>
+          </div>
+
+          <div class="profile-divider"></div>
+
+          <ul class="profile-info">
+            <li>
+              <i class="fa fa-map-marker-alt"></i> Residence : Turkey - Istanbul
+            </li>
+            <li><i class="fa fa-phone"></i> 00905312691609</li>
+          </ul>
+
+          <div class="profile-divider" style="margin-top: 20px"></div>
+          <!-- Social Icons -->
+          <div class="social-icons">
+            <a
+              href="https://wa.me/00905312691609"
+              target="_blank"
+              class="social-btn whatsapp"
+              title="WhatsApp"
+            >
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a
+              href="https://youtube.com/@Amoeyan46"
+              target="_blank"
+              class="social-btn youtube"
+              title="YouTube"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              class="social-btn github"
+              title="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://linkedin.com/in/yourprofile"
+              target="_blank"
+              class="social-btn linkedin"
+              title="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="tel:00905312691609"
+              class="social-btn phone"
+              title="00905312691609"
+            >
+              <i class="fa fa-phone"></i>
+            </a>
+            <a
+              href="mailto:Amoeyan.music@gmail.com"
+              class="social-btn email"
+              title="Amoeyan.music@gmail.com"
+            >
+              <i class="fa fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Circular nav attached to right edge of left sidebar -->
+    <nav class="half-circle-nav" id="halfNav">
+      <div class="nav-toggle" id="navToggle" title="Menu">
+        <span></span><span></span><span></span>
+      </div>
+
+      <ul class="nav-items" id="navItems">
+        <li class="nav-item" data-section="aboutme" style="--i: 0">
+          <button onclick="openSection('aboutme')">
+            <i class="fa fa-address-card"></i>
+            <span>About Me</span>
+          </button>
+        </li>
+        <li class="nav-item" data-section="education" style="--i: 1">
+          <button onclick="openSection('education')">
+            <i class="fa fa-graduation-cap"></i>
+            <span>Education</span>
+          </button>
+        </li>
+
+        <li class="nav-item" data-section="skills" style="--i: 2">
+          <button onclick="openSection('skills')">
+            <i class="fa fa-cogs"></i>
+            <span>Expertise</span>
+          </button>
+        </li>
+
+        <li class="nav-item" data-section="courses" style="--i: 4">
+          <button onclick="openSection('courses')">
+            <i class="fa fa-certificate"></i>
+            <span>Courses</span>
+          </button>
+        </li>
+        <li class="nav-item" data-section="workHistory" style="--i: 5">
+          <button onclick="openSection('workHistory')">
+            <i class="fa fa-rocket"></i>
+            <span>Work History</span>
+          </button>
+        </li>
+
+        <li class="nav-item" data-section="interests" style="--i: 6">
+          <button onclick="openSection('interests')">
+            <i class="fa fa-heart"></i>
+            <span>Interests</span>
+          </button>
+        </li>
+        <li class="nav-item" data-section="arts" style="--i: 7">
+          <button onclick="openSection('arts')">
+            <i class="fa fa-music"></i>
+            <span>Artistic Activities</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Hero area -->
+    <main class="main-content">
+      <div class="hero-text">
+        <h1 class="hero-title reveal-text">Welcome</h1>
+        <p class="hero-sub reveal-text-delay">
+          Use the left menu to navigate through the different sections
+        </p>
+        <div class="hero-dots"><span></span><span></span><span></span></div>
+      </div>
+    </main>
+
+    <!-- MODAL OVERLAY -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeSection()">
+      <div class="modal-circle-bg" id="modalCircleBg"></div>
+    </div>
+
+    <!-- SECTION PANELS -->
+
+    <!-- About me -->
+    <section class="section-panel glass-panel" id="aboutme">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+
+      <div class="about-header">
+        <div class="about-title-icon">
+          <i
+            class="fa fa-user"
+            style="color: rgba(201, 168, 76, 0.9); font-size: 18px"
+          ></i>
+        </div>
+        <h1>About Me</h1>
+      </div>
+
+      <div class="about-body">
+        <div class="about-block accent-gold">
+          <div class="block-label">
+            <span class="block-label-dot"></span>Technical Expertise
+          </div>
+          <p class="block-text">
+            I am an Electronics Engineer (MSc) and software developer, as well
+            as an MBA graduate specializing in E-Commerce; focused on solving
+            complex challenges at the intersection of electronics, hardware,
+            software, and management — particularly where music meets
+            electronics. My core expertise lies in analog and digital circuit
+            design with a focus on audio engineering — signal detection,
+            generation, and filtering — and working with microcontrollers.
+          </p>
+          <div class="tags-row">
+            <span class="tag tag-gold">Analog Circuits</span>
+            <span class="tag tag-gold">Digital Circuits</span>
+            <span class="tag tag-gold">Audio Engineering</span>
+            <span class="tag tag-gold">Microcontroller</span>
+            <span class="tag tag-blue">Python</span>
+            <span class="tag tag-blue">Frontend</span>
+          </div>
+        </div>
+
+        <div class="about-block accent-teal">
+          <div class="block-label" style="color: rgba(80, 210, 165, 0.7)">
+            <span
+              class="block-label-dot"
+              style="background: rgba(80, 210, 165, 0.6)"
+            ></span
+            >Management Experience
+          </div>
+          <p class="block-text">
+            My career path combines technical creativity with management
+            thinking. Managing major industrial projects such as Iran Khodro's
+            paint lines, product management, and the installation and
+            maintenance of ATM networks has taught me how to guide a technical
+            idea from paper to large-scale implementation.
+          </p>
+        </div>
+
+        <div class="about-block accent-soft">
+          <div class="block-label" style="color: rgba(140, 180, 240, 0.7)">
+            <span
+              class="block-label-dot"
+              style="background: rgba(140, 180, 240, 0.5)"
+            ></span
+            >Life Outside Engineering
+          </div>
+          <div class="interest-grid">
+            <div class="interest-item">
+              🎵
+              <div class="interest-text">
+                <strong>Music</strong>Mastery of 8 instruments · Teaching 6
+                instruments · Composition
+              </div>
+            </div>
+            <div class="interest-item">
+              ✒️
+              <div class="interest-text">
+                <strong>Calligraphy</strong>Artistic and creative expression
+              </div>
+            </div>
+            <div class="interest-item">
+              🥋
+              <div class="interest-text">
+                <strong>Martial Arts</strong>Focus and personal discipline
+              </div>
+            </div>
+            <div class="interest-item">
+              🏀
+              <div class="interest-text">
+                <strong>Basketball · Tennis</strong>Dynamism and teamwork
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section-panel glass-panel" id="education">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title">
+        <i class="fa fa-graduation-cap"></i> Education
+      </h2>
+      <div class="section-content">
+        <div class="edu-cards">
+          <div class="edu-card glass-card">
+            <div class="edu-icon"><i class="fa fa-university"></i></div>
+            <div class="edu-info">
+              <h3>Bachelor's in Electronics Engineering</h3>
+              <p class="edu-meta">BSc · Electrical - Electronics Engineering</p>
+              <p class="edu-desc">
+                Undergraduate program in Electronics Engineering
+              </p>
+            </div>
+            <div class="edu-cert">
+              <div class="cert-placeholder">
+                <div id="cert1-placeholder" class="cert-upload-area">
+                  <img
+                    class="zoomable"
+                    src="lis.jpeg"
+                    alt="bachlor"
+                    style="width: 100%; border-radius: 8px"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="edu-card glass-card">
+            <div class="edu-icon"><i class="fa fa-university"></i></div>
+            <div class="edu-info">
+              <h3>Master's in Electronics Engineering</h3>
+              <p class="edu-meta">MSc · Electrical - Electronics Engineering</p>
+              <p class="edu-desc">
+                Graduate program in Electronics Engineering
+              </p>
+            </div>
+            <div class="edu-cert">
+              <div class="cert-placeholder">
+                <div id="cert1-placeholder" class="cert-upload-area">
+                  <img
+                    class="zoomable"
+                    src="fe.jpeg"
+                    alt="master"
+                    style="width: 100%; border-radius: 8px"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="edu-card glass-card">
+            <div class="edu-icon"><i class="fa fa-briefcase"></i></div>
+            <div class="edu-info">
+              <h3>Master of Business Administration (MBA)</h3>
+              <p class="edu-meta">E-Commerce Specialization</p>
+              <p class="edu-desc">
+                MBA program with specialization in E-Commerce
+              </p>
+            </div>
+            <div class="edu-cert">
+              <div class="cert-placeholder">
+                <div id="cert1-placeholder" class="cert-upload-area">
+                  <img
+                    class="zoomable"
+                    src="ta.jpeg"
+                    alt="master"
+                    style="width: 100%; border-radius: 8px"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interests -->
+    <section class="section-panel glass-panel" id="interests">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title"><i class="fa fa-heart"></i> Interests</h2>
+      <div class="section-content">
+        <div class="interests-grid">
+          <div class="interest-block glass-card">
+            <h3 class="interest-cat"><i class="fa fa-running"></i> Sports</h3>
+            <div class="interest-items">
+              <div class="interest-tag">
+                <i class="fa fa-yin-yang"></i> Aikido
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-fist-raised"></i> Taekwondo
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-star"></i> Ninjutsu
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-hand-rock"></i> Wing Chun
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-basketball-ball"></i> Basketball
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-table-tennis"></i> Tennis
+              </div>
+            </div>
+          </div>
+
+          <div class="interest-block glass-card">
+            <h3 class="interest-cat"><i class="fa fa-palette"></i> Arts</h3>
+            <div class="interest-arts">
+              <div class="art-item">
+                <div class="art-icon"><i class="fa fa-pen-nib"></i></div>
+                <div class="art-info">
+                  <h4>Calligraphy</h4>
+                  <p>
+                    Holder of a Distinguished Diploma from the Iranian
+                    Calligraphers Association
+                  </p>
+                  <span class="badge">Distinguished Diploma</span>
+                </div>
+              </div>
+              <div class="art-item">
+                <div class="art-icon"><i class="fa fa-music"></i></div>
+                <div class="art-info">
+                  <h4>Music</h4>
+                  <p>
+                    Instruments: Tar, Setar, Tombak, Darbuka, Accordion, Piano,
+                    Daf
+                  </p>
+                  <p>Composition and Vocals</p>
+                  <div class="instrument-icons">
+                    <span title="Tar"></span>
+                    <span title="Setar"></span>
+                    <span title="Tombak"></span>
+                    <span title="Piano"></span>
+                    <span title="Accordion"></span>
+                    <span title="Daf"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="arts-gallery">
+          <iframe src="carousel.html?set=1"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Arts Activities -->
+    <section class="section-panel glass-panel" id="arts">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title">
+        <i class="fa fa-music"></i> Artistic Activities
+      </h2>
+      <div class="section-content">
+        <div class="arts-timeline">
+          <div class="timeline-item glass-card">
+            <div class="timeline-icon"><i class="fa fa-guitar"></i></div>
+            <div class="timeline-content">
+              <h3>
+                Performance and Collaboration with the Takht-e Jamshid Group
+              </h3>
+              <p>
+                Several concerts under the direction of maestro
+                <strong>Masoud Habibi</strong>
+              </p>
+              <p>With vocals by <strong>Bijan Kamkar</strong> in Iran</p>
+              <span class="timeline-badge"
+                ><i class="fa fa-map-marker-alt"></i> Iran</span
+              >
+            </div>
+          </div>
+          <div class="timeline-item glass-card">
+            <div class="timeline-icon"><i class="fa fa-globe"></i></div>
+            <div class="timeline-content">
+              <h3>Concerts and Festivals in Turkey</h3>
+              <p>
+                Musical performances at several concerts and festivals in Turkey
+              </p>
+              <span class="timeline-badge"
+                ><i class="fa fa-map-marker-alt"></i> Turkey</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="arts-gallery">
+          <iframe src="carousel.html?set=2"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section-panel glass-panel" id="skills">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title">
+        <i class="fa fa-cogs"></i> Expertise &amp; Notable Projects
+      </h2>
+      <div class="section-content">
+        <div class="skills-expertise">
+          <div
+            class="skill-block glass-card"
+            style="border: 5px solid rgba(201, 168, 76, 0.35)"
+          >
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Project Management</h3>
+            </div>
+            <p>Project Management</p>
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i>Management of more than twenty
+                electrical paint-line projects at Iran Khodro - Iran
+              </li>
+            </ul>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 92%"></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-block glass-card"
+            style="border: 5px solid rgba(201, 168, 76, 0.35)"
+          >
+            <div class="skill-header">
+              <div class="skill-icon elec"><i class="fa fa-microchip"></i></div>
+              <h3>Electronics</h3>
+            </div>
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> Digital and analog circuit
+                design
+              </li>
+              <li>
+                <i class="fa fa-check-circle"></i> Design and construction of
+                control circuits with microcontrollers
+              </li>
+              <li>
+                <i class="fa fa-check-circle"></i> Circuit design with Arduino
+              </li>
+            </ul>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 95%"></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-block glass-card"
+            style="border: 5px solid rgba(201, 168, 76, 0.35)"
+          >
+            <div class="skill-header">
+              <div class="skill-icon soft"><i class="fa fa-code"></i></div>
+              <h3>Software</h3>
+            </div>
+            <ul class="skill-list">
+              <li><i class="fa fa-check-circle"></i> Website design</li>
+              <li>
+                <i class="fa fa-check-circle"></i> Software projects with Python
+              </li>
+              <li>
+                <i class="fa fa-check-circle"></i> HTML, CSS, JavaScript,
+                nodejs, mongoDB, Express js, react, tailwind, bootstrap
+              </li>
+            </ul>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          <!----------------اضافه کن برای ستونی شدن-->
+        </div>
+
+        <h3 class="projects-section-title">
+          <i class="fa fa-folder-open"></i> Notable Projects
+        </h3>
+        <div class="skills-grid">
+          <!----------------اضافه کن برای ستونی شدن-->
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Audio Spectrogram Device</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> As a Master's thesis project
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Electronics</span>
+              <span>Software</span><span>Interface Circuits</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Iranian Music Self-Teaching Device</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> Design, construction, and
+                production of a self-teaching music device registered as a
+                patent
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Electronics</span>
+              <span style="color: white">Registered Patent</span
+              ><span>Music &amp; Electronics Fusion</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Electronic Organ Device</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> As a Bachelor's thesis
+                project
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Electronics</span><span>Hardware</span> <span>Software</span
+              ><span>Microcontroller</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Automatic Color Changer Device</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> Design and construction of an
+                automatic color changer for automotive paint lines
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Electronics</span><span>Hardware</span> <span>Robotics</span
+              ><span>PLC</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Audio Mixer Device</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> Design and construction of a
+                pocket-sized mixer for street musicians
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Electronics</span><span>Music</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Portable Battery Device</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> Dedicated power bank for
+                street musicians
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Electronics</span><span>Music</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Preamp and Equalizer Device</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i>
+                Design and construction of an audio preamp and equalizer for
+                various musical instruments
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Electronics</span><span>Music</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Software</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i>
+                Development of corporate websites, portfolio sites, and software
+                projects using Python
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Python</span><span>Software</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses -->
+    <section class="section-panel glass-panel" id="courses">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title">
+        <i class="fa fa-certificate"></i> Completed Courses
+      </h2>
+      <div class="section-content">
+        <div class="kurs-cards">
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (9).jpeg"
+                alt="ATM Operator"
+              />
+              <figcaption>
+                <h3>ATM Operator Course</h3>
+                <p class="kurs-meta">
+                  Organizer : Informatics Services Company
+                </p>
+                <p class="kurs-desc">Duration : 8 hours</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (6).jpeg"
+                alt="MicroMaster Commissioning"
+              />
+              <figcaption>
+                <h3>MicroMaster Commissioning</h3>
+                <p class="kurs-meta">Organizer : Siemens Germany</p>
+                <p class="kurs-desc">Duration : two days</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (4).jpeg" alt="PMBOK" />
+              <figcaption>
+                <h3>PMBOK Project Management</h3>
+                <p class="kurs-meta">Organizer : PMP Iran</p>
+                <p class="kurs-desc">Duration : two days</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (3).jpeg"
+                alt="Industrial Ethernet"
+              />
+              <figcaption>
+                <h3>Industrial Ethernet</h3>
+                <p class="kurs-meta">Organizer : Siemens Germany</p>
+                <p class="kurs-desc">Duration : seven days</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (35).jpeg"
+                alt="Eurotherm"
+              />
+              <figcaption>
+                <h3>Eurotherm Device 2000Series</h3>
+                <p class="kurs-meta">Organizer : Eurotherm UK</p>
+                <p class="kurs-desc">Duration : one day</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (33).jpeg"
+                alt="Eurotherm"
+              />
+              <figcaption>
+                <h3>Profibus</h3>
+                <p class="kurs-meta">Organizer : Eurotherm UK</p>
+                <p class="kurs-desc">Duration : one day</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (32).jpeg"
+                alt="Eurotherm"
+              />
+              <figcaption>
+                <h3>Control Basics</h3>
+                <p class="kurs-meta">Organizer : Eurotherm UK</p>
+                <p class="kurs-desc">Duration : one day</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (28).jpeg"
+                alt="Eurotherm device"
+              />
+              <figcaption>
+                <h3>Eurotherm Device 2604/2704Series</h3>
+                <p class="kurs-meta">Organizer : Eurotherm UK</p>
+                <p class="kurs-desc">Duration : two days</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (31).jpeg"
+                alt="PT/ED plant"
+              />
+              <figcaption>
+                <h3>PT/ED plant</h3>
+                <p class="kurs-meta">Organizer : Eisenmann Germany</p>
+                <p class="kurs-desc">Duration : five days</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (30).jpeg"
+                alt="FieldBus foundation"
+              />
+              <figcaption>
+                <h3>FieldBus foundation</h3>
+                <p class="kurs-meta">
+                  Organizer : Shipping and transport college
+                </p>
+                <p class="kurs-desc">Duration : five days</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (27).jpeg"
+                alt="Advanced Excel"
+              />
+              <figcaption>
+                <h3>Advanced Excel Course</h3>
+                <p class="kurs-meta">
+                  Organizer : Sharif Industrial University Jihad Academy
+                </p>
+                <p class="kurs-desc">Duration : 30 hours</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (11).jpeg"
+                alt="Industrial Project Feasibility"
+              />
+              <figcaption>
+                <h3>Industrial Project Feasibility Study</h3>
+                <p class="kurs-meta">
+                  Organizer : Iran Industrial Education and Research Center
+                </p>
+                <p class="kurs-desc">Duration : 32 hours</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (10).jpeg"
+                alt="Marketing Management"
+              />
+              <figcaption>
+                <h3>Marketing Management</h3>
+                <p class="kurs-meta">
+                  Organizer : 3rd International Marketing Conference
+                </p>
+                <p class="kurs-desc">Duration : 18 hours</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (8).jpeg" alt="EPC" />
+              <figcaption>
+                <h3>Cost Estimation Methods in EPC Contracts</h3>
+                <p class="kurs-meta">Organizer : Fragastaran Company</p>
+                <p class="kurs-desc">Duration : 8 hours</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (24).jpeg"
+                alt="Auto color changer"
+              />
+              <figcaption>
+                <h3>Auto color changer</h3>
+                <p class="kurs-meta">
+                  Organizer : International Paint Automation Conference
+                </p>
+                <p class="kurs-desc">Duration : 8 hours</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (34).jpeg" alt="SMAR" />
+              <figcaption>
+                <h3>Profibus Control System Smar</h3>
+                <p class="kurs-meta">Organizer : Smar Iran</p>
+                <p class="kurs-desc">Duration : 48 hours</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (22).jpeg"
+                alt="simatic S7"
+              />
+              <figcaption>
+                <h3>Simatic S7 programming</h3>
+                <p class="kurs-meta">Organizer : Siemens Germany</p>
+                <p class="kurs-desc">Duration : 4 days</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (21).jpeg"
+                alt="Industrial Ethernet"
+              />
+              <figcaption>
+                <h3>Simatic S7 Industrial Ethernet</h3>
+                <p class="kurs-meta">Organizer : Siemens Germany</p>
+                <p class="kurs-desc">Duration : 8 days</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (19).jpeg" alt="Burner" />
+              <figcaption>
+                <h3>Eclipse Burner</h3>
+                <p class="kurs-meta">Organizer : Eclipse Germany</p>
+                <p class="kurs-desc">Duration : 3 days</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (12).jpeg" alt="ICTINQA" />
+              <figcaption>
+                <h3>ICTINQA concepts and model</h3>
+                <p class="kurs-meta">Organizer : BEC Group</p>
+                <p class="kurs-desc">Duration : 1 day</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (17).jpeg"
+                alt="PT/ED paint line"
+              />
+              <figcaption>
+                <h3>PT/ED paint line</h3>
+                <p class="kurs-meta">Organizer : DÜRR Germany</p>
+                <p class="kurs-desc">Duration : 11 days</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (16).jpeg"
+                alt="Supervisory Principles"
+              />
+              <figcaption>
+                <h3>Supervisory Principles</h3>
+                <p class="kurs-meta">
+                  Organizer : Iran Industrial Education and Research Center
+                </p>
+                <p class="kurs-desc">Duration : 16 hours</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (15).jpeg"
+                alt="Negotiation Principles and Techniques"
+              />
+              <figcaption>
+                <h3>Negotiation Principles and Techniques</h3>
+                <p class="kurs-meta">
+                  Organizer : Industrial Management Organization
+                </p>
+                <p class="kurs-desc">Duration : 8 hours</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (14).jpeg"
+                alt="Decision Management"
+              />
+              <figcaption>
+                <h3>Decision Management</h3>
+                <p class="kurs-meta">Organizer : TÜV Academy</p>
+                <p class="kurs-desc">Duration : three days</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (2).jpeg"
+                alt="Basic PLC Course"
+              />
+              <figcaption>
+                <h3>Basic PLC Course</h3>
+                <p class="kurs-meta">Organizer : Kontrolnik Company</p>
+                <p class="kurs-desc">Duration : 36 hours</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- work history -->
+    <section class="section-panel glass-panel" id="workHistory">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title"><i class="fa fa-rocket"></i> Work History</h2>
+      <div class="section-content">
+        <div class="projects-grid">
+          <div class="project-card glass-card">
+            <h3>Parso Electronics Company</h3>
+            <p>Field : UPS device manufacturing</p>
+            <div class="project-tags">
+              <span>Design Engineer</span><span>One year</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <h3>Savt Azin Company</h3>
+            <p>Field : Innovation and production</p>
+            <div class="project-tags">
+              <span>CEO</span><span>One and a half years</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <h3>Iran Informatics Services Company</h3>
+            <p>Field : Switch systems and banking equipment</p>
+            <div class="project-tags">
+              <span>ATM Division Design Engineer</span><span>Two years</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <h3>TAM Iran Khodro Company</h3>
+            <p>Field : Industrial automation (automotive industry)</p>
+            <div class="project-tags">
+              <span>Paint Line Electrical Project Manager</span
+              ><span>Seven years</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <h3>Pardakht Novin Aryan Company (Novin Economy Bank)</h3>
+            <p>Field : Industrial automation (automotive industry)</p>
+            <div class="project-tags">
+              <span>ATM Group Manager</span><span>Eight years</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <h3>Yas Arghavani Company (Mellat Bank)</h3>
+            <p>Field : Industrial automation (automotive industry)</p>
+            <div class="project-tags">
+              <span
+                >Banking Equipment Installation and Commissioning Group
+                Manager</span
+              ><span>One and a half years</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <h3>Iran Arqam Company</h3>
+            <p>Field : Industrial automation (automotive industry)</p>
+            <div class="project-tags">
+              <span>Product Manager</span><span>Two years</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <h3>Freelance</h3>
+            <p>Field : Electronic design and website development</p>
+            <div class="project-tags">
+              <span>Currently active...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox for image zoom -->
+    <div id="lightbox" class="lightbox">
+      <button class="close-btn lightbox-close">
+        <i class="fa fa-times"></i>
+      </button>
+      <img id="lightbox-img" src="" />
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

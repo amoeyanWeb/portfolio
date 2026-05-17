@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel Component</title>
+
+    <style>
+      body {
+        margin: 0;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .carousel {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .slides {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .slide {
+        min-width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      /*
+            .slide:nth-child(1) {
+              background: #5b9cf6;
+            }
+            .slide:nth-child(2) {
+              background: #a78bfa;
+            }
+            .slide:nth-child(3) {
+              background: #c9a84c;
+            } */
+
+      .btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: white;
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .prev {
+        left: 10px;
+      }
+      .next {
+        right: 10px;
+      }
+
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+
+      .overlay.active {
+        display: flex;
+      }
+
+      .overlay img {
+        max-width: 95%;
+        max-height: 95%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="carousel">
+      <div class="slides" id="slides">
+        <div class="slide"><img src="bg2.jpg" alt="" />></div>
+        <div class="slide"><img src="bg4.jpg" alt="" /></div>
+        <div class="slide"><img src="bg-rec.jpeg" alt="" /></div>
+
+        <div class="slide"><img src="bg5.jpg" alt="" /></div>
+        <div class="slide"><img src="bg6.jpg" alt="" /></div>
+      </div>
+
+      <button class="btn prev" onclick="move(-1)">‹</button>
+      <button class="btn next" onclick="move(1)">›</button>
+    </div>
+
+    <!-- <iframe
+      src="carousel.html"
+      style="width: 600px; height: 320px; border: none; border-radius: 16px"
+    ></iframe> -->
+    <script>
+      let index = 0;
+
+      function move(dir) {
+        const slides = document.getElementById("slides");
+        const total = slides.children.length;
+
+        index += dir;
+
+        if (index < 0) index = total - 1;
+        if (index >= total) index = 0;
+
+        slides.style.transform = `translateX(-${index * 100}%)`;
+      }
+    </script>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const set = params.get("set");
+
+      let images = [];
+
+      if (set === "1") {
+        images = [
+          "./cert/wc1.jpeg",
+          "./cert/wc2.jpeg",
+          "./cert/wc3.jpeg",
+          "./cert/tek.jpeg",
+          "./cert/AIKIDO.jpeg",
+          "./cert/bas1.jpeg",
+          "./cert/bas2.jpeg",
+          "./cert/bas3.jpeg",
+          "./cert/bas4.jpeg",
+        ];
+      }
+
+      if (set === "2") {
+        images = [
+          "./cert/hon1.jpeg",
+          "./cert/hon2.jpeg",
+          "./cert/hon3.jpeg",
+          "./cert/hon4.jpeg",
+          "./cert/hon5.jpeg",
+          "./cert/hon6.jpeg",
+        ];
+      }
+
+      const slides = document.getElementById("slides");
+
+      slides.innerHTML = images
+        .map(
+          (src) => `
+        <div class="slide">
+          <img src="${src}" />
+        </div>
+      `,
+        )
+        .join("");
+    </script>
+  </body>
+</html>

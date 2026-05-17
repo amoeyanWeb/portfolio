@@ -1,0 +1,1374 @@
+<!doctype html>
+<html lang="tr" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="google" content="notranslate" />
+    <title>Portföy</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;900&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- ===== Sabit Mobil Başlık ===== -->
+    <header class="mobile-header">
+      <div class="mobile-avatar">
+        <img src="Mammad.jpg" alt="Muhammed Rıza Amoeyan" />
+      </div>
+      <div class="mobile-header-text">
+        <div class="mobile-header-name">Muhammed Rıza Amoeyan</div>
+        <div class="mobile-header-title">
+          Elektronik Mühendisi | Proje Yöneticisi | Sanatçı
+        </div>
+      </div>
+      <button
+        class="lang-switcher"
+        id="langBtn"
+        onclick="switchLang()"
+        title="Switch Language"
+      >
+        TR
+      </button>
+    </header>
+
+    <style>
+      .lang-switcher {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(201, 168, 76, 0.7);
+        background: rgba(20, 18, 14, 0.65);
+        color: rgba(201, 168, 76, 0.95);
+        font-family: "Playfair Display", serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        flex-shrink: 0;
+        margin-left: 6px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(8px);
+        transition:
+          transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 0.22s ease,
+          background 0.2s ease,
+          color 0.2s ease;
+        user-select: none;
+        outline: none;
+        z-index: 9999;
+      }
+      .lang-switcher:hover {
+        transform: scale(1.13);
+        box-shadow:
+          0 6px 22px rgba(201, 168, 76, 0.55),
+          0 2px 12px rgba(0, 0, 0, 0.55);
+        background: rgba(201, 168, 76, 0.18);
+        color: #f0d97a;
+        border-color: rgba(201, 168, 76, 1);
+      }
+      .lang-switcher:active {
+        transform: scale(1.1);
+      }
+      .desktop-lang-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 14px 0 8px;
+      }
+
+      .desktop-lang-switcher {
+        margin-right: 0;
+        width: 42px;
+        height: 42px;
+        font-size: 12px;
+      }
+    </style>
+    <script>
+      // ====================== LANGUAGE SWITCHER - FINAL FIXED ======================
+      const _langs = ["FA", "EN", "TR"];
+      const _files = ["index_fa.html", "index.html", "index_tr.html"];
+
+      function getCurrentLangIndex() {
+        const path = window.location.pathname.toLowerCase();
+        if (path.includes("index_fa.html") || path.includes("fa")) return 0;
+        if (path.includes("index_tr.html") || path.includes("tr")) return 2;
+        return 1;
+      }
+
+      let _cur = getCurrentLangIndex();
+
+      // تابع اصلی — با force روی window
+      window.switchLang = function () {
+        console.log(
+          "%c🔥 switchLang CALLED - Current:",
+          "color: red; font-size: 15px",
+          _langs[_cur],
+        );
+
+        _cur = (_cur + 1) % 3;
+
+        console.log(
+          "%c→ Going to:",
+          "color: lime; font-size: 15px",
+          _langs[_cur],
+        );
+
+        // بروزرسانی دکمه قبل از رفتن
+        const mobileBtn = document.getElementById("langBtn");
+        const desktopBtn = document.getElementById("langBtnDesktop");
+        if (mobileBtn) mobileBtn.textContent = _langs[_cur];
+        if (desktopBtn) desktopBtn.textContent = _langs[_cur];
+
+        setTimeout(() => {
+          console.log(
+            "%c🚀 NAVIGATING TO:",
+            "color: cyan; font-size: 15px",
+            _files[_cur],
+          );
+          window.location.href = _files[_cur];
+        }, 200);
+      };
+
+      function updateLangButtons() {
+        _cur = getCurrentLangIndex();
+        console.log(
+          "%c📍 LOADED:",
+          "color: gold; font-size: 14px",
+          _langs[_cur],
+        );
+      }
+
+      document.addEventListener("DOMContentLoaded", updateLangButtons);
+      window.addEventListener("load", updateLangButtons);
+    </script>
+    <!-- ===== Sabit Mobil Alt Bilgi (Sosyal Medya) ===== -->
+    <footer class="mobile-footer">
+      <div class="mobile-footer-label">Sosyal Medya</div>
+      <div class="mobile-footer-socials">
+        <a
+          href="https://wa.me/00905312691609"
+          target="_blank"
+          class="social-btn whatsapp"
+          title="WhatsApp"
+        >
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a
+          href="https://youtube.com/@Amoeyan46"
+          target="_blank"
+          class="social-btn youtube"
+          title="YouTube"
+        >
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a
+          href="https://github.com/yourusername"
+          target="_blank"
+          class="social-btn github"
+          title="GitHub"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+        <a
+          href="https://linkedin.com/in/yourprofile"
+          target="_blank"
+          class="social-btn linkedin"
+          title="LinkedIn"
+        >
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="tel:00905312691609" class="social-btn phone" title="Telefon">
+          <i class="fa fa-phone"></i>
+        </a>
+        <a
+          href="mailto:Amoeyan.music@gmail.com"
+          class="social-btn email"
+          title="E-posta"
+        >
+          <i class="fa fa-envelope"></i>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Fixed Background (SVG graphic + optional photo) -->
+    <div class="bg-fixed">
+      <img src="bg4.jpg" alt="background" class="bg-image" />
+      <div class="bg-overlay"></div>
+    </div>
+
+    <!-- Left Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <div class="profile-section">
+          <div class="avatar-ring">
+            <img
+              src="Mammad.jpg"
+              alt="Muhammed Rıza Amoeyan"
+              class="avatar-img"
+            />
+          </div>
+          <h2 class="profile-name">Muhammed Rıza Amoeyan</h2>
+          <p class="profile-title">
+            Elektronik Mühendisi | Proje Yöneticisi | Sanatçı
+          </p>
+          <!-- Desktop Language Switcher -->
+          <div class="desktop-lang-wrapper">
+            <button
+              class="lang-switcher desktop-lang-switcher"
+              id="langBtnDesktop"
+              onclick="switchLang()"
+              title="Switch Language"
+            >
+              FA
+            </button>
+          </div>
+
+          <div class="profile-divider"></div>
+
+          <ul class="profile-info">
+            <li>
+              <i class="fa fa-map-marker-alt"></i> İkamet : Türkiye - İstanbul
+            </li>
+            <li><i class="fa fa-phone"></i> 00905312691609</li>
+          </ul>
+
+          <div class="profile-divider" style="margin-top: 20px"></div>
+          <!-- Social Icons -->
+          <div class="social-icons">
+            <a
+              href="https://wa.me/00905312691609"
+              target="_blank"
+              class="social-btn whatsapp"
+              title="WhatsApp"
+            >
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a
+              href="https://youtube.com/@Amoeyan46"
+              target="_blank"
+              class="social-btn youtube"
+              title="YouTube"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              class="social-btn github"
+              title="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://linkedin.com/in/yourprofile"
+              target="_blank"
+              class="social-btn linkedin"
+              title="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="tel:00905312691609"
+              class="social-btn phone"
+              title="00905312691609"
+            >
+              <i class="fa fa-phone"></i>
+            </a>
+            <a
+              href="mailto:Amoeyan.music@gmail.com"
+              class="social-btn email"
+              title="Amoeyan.music@gmail.com"
+            >
+              <i class="fa fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Circular nav attached to right edge of left sidebar -->
+    <nav class="half-circle-nav" id="halfNav">
+      <div class="nav-toggle" id="navToggle" title="Menü">
+        <span></span><span></span><span></span>
+      </div>
+
+      <ul class="nav-items" id="navItems">
+        <li class="nav-item" data-section="aboutme" style="--i: 0">
+          <button onclick="openSection('aboutme')">
+            <i class="fa fa-address-card"></i>
+            <span>Hakkımda</span>
+          </button>
+        </li>
+        <li class="nav-item" data-section="education" style="--i: 1">
+          <button onclick="openSection('education')">
+            <i class="fa fa-graduation-cap"></i>
+            <span>Eğitim</span>
+          </button>
+        </li>
+
+        <li class="nav-item" data-section="skills" style="--i: 2">
+          <button onclick="openSection('skills')">
+            <i class="fa fa-cogs"></i>
+            <span>Uzmanlık</span>
+          </button>
+        </li>
+
+        <li class="nav-item" data-section="courses" style="--i: 4">
+          <button onclick="openSection('courses')">
+            <i class="fa fa-certificate"></i>
+            <span>Kurslar</span>
+          </button>
+        </li>
+        <li class="nav-item" data-section="workHistory" style="--i: 5">
+          <button onclick="openSection('workHistory')">
+            <i class="fa fa-rocket"></i>
+            <span>İş Geçmişi</span>
+          </button>
+        </li>
+
+        <li class="nav-item" data-section="interests" style="--i: 6">
+          <button onclick="openSection('interests')">
+            <i class="fa fa-heart"></i>
+            <span>İlgi Alanları</span>
+          </button>
+        </li>
+        <li class="nav-item" data-section="arts" style="--i: 7">
+          <button onclick="openSection('arts')">
+            <i class="fa fa-music"></i>
+            <span>Sanatsal Faaliyetler</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Hero area -->
+    <main class="main-content">
+      <div class="hero-text">
+        <h1 class="hero-title reveal-text">Hoş Geldiniz</h1>
+        <p class="hero-sub reveal-text-delay">
+          Farklı bölümleri görüntülemek için sol menüyü kullanın
+        </p>
+        <div class="hero-dots"><span></span><span></span><span></span></div>
+      </div>
+    </main>
+
+    <!-- MODAL OVERLAY -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeSection()">
+      <div class="modal-circle-bg" id="modalCircleBg"></div>
+    </div>
+
+    <!-- SECTION PANELS -->
+
+    <!-- About me -->
+    <section class="section-panel glass-panel" id="aboutme">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+
+      <div class="about-header">
+        <div class="about-title-icon">
+          <i
+            class="fa fa-user"
+            style="color: rgba(201, 168, 76, 0.9); font-size: 18px"
+          ></i>
+        </div>
+        <h1>Hakkımda</h1>
+      </div>
+
+      <div class="about-body">
+        <div class="about-block accent-gold">
+          <div class="block-label">
+            <span class="block-label-dot"></span>Teknik Uzmanlık
+          </div>
+          <p class="block-text">
+            Elektronik Mühendisiyim (Yüksek Lisans) ve yazılım geliştiriciyim;
+            aynı zamanda E-Ticaret odaklı İşletme Yönetimi Yüksek Lisansına
+            sahibim. Elektronik, donanım, yazılım ve yönetim kesişimindeki
+            —özellikle müzik ve elektronik buluşmasındaki— karmaşık zorlukları
+            çözmek üzerine uzmanlaşmış durumdayım. Temel uzmanlığım analog ve
+            dijital devre tasarımı, ses mühendisliği —sinyal tanıma, üretme ve
+            filtreleme— ile mikrodenetleyiciler üzerinedir.
+          </p>
+          <div class="tags-row">
+            <span class="tag tag-gold">Analog Devreler</span>
+            <span class="tag tag-gold">Dijital Devreler</span>
+            <span class="tag tag-gold">Ses Mühendisliği</span>
+            <span class="tag tag-gold">Mikrodenetleyici</span>
+            <span class="tag tag-blue">Python</span>
+            <span class="tag tag-blue">Frontend</span>
+          </div>
+        </div>
+
+        <div class="about-block accent-teal">
+          <div class="block-label" style="color: rgba(80, 210, 165, 0.7)">
+            <span
+              class="block-label-dot"
+              style="background: rgba(80, 210, 165, 0.6)"
+            ></span
+            >Yönetim Deneyimi
+          </div>
+          <p class="block-text">
+            Kariyerim, teknik yaratıcılık ile yönetim düşüncesinin bir
+            bileşimidir. Iran Khodro'nun boya hatları gibi büyük endüstriyel
+            projelerin yönetimi, ürün yönetimi ve ATM ağlarının kurulum ile
+            bakımı bana bir teknik fikri kağıttan büyük ölçekli uygulamaya nasıl
+            taşıyacağımı öğretti.
+          </p>
+        </div>
+
+        <div class="about-block accent-soft">
+          <div class="block-label" style="color: rgba(140, 180, 240, 0.7)">
+            <span
+              class="block-label-dot"
+              style="background: rgba(140, 180, 240, 0.5)"
+            ></span
+            >Mühendisliğin Dışındaki Dünya
+          </div>
+          <div class="interest-grid">
+            <div class="interest-item">
+              🎵
+              <div class="interest-text">
+                <strong>Müzik</strong>8 enstrümana hakimiyet · 6 enstrüman
+                öğretimi · Beste
+              </div>
+            </div>
+            <div class="interest-item">
+              ✒️
+              <div class="interest-text">
+                <strong>Hat Sanatı</strong>Sanatsal ve yaratıcı ifade
+              </div>
+            </div>
+            <div class="interest-item">
+              🥋
+              <div class="interest-text">
+                <strong>Dövüş Sanatları</strong>Odak ve kişisel disiplin
+              </div>
+            </div>
+            <div class="interest-item">
+              🏀
+              <div class="interest-text">
+                <strong>Basketbol · Tenis</strong>Dinamizm ve takım çalışması
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section-panel glass-panel" id="education">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title"><i class="fa fa-graduation-cap"></i> Eğitim</h2>
+      <div class="section-content">
+        <div class="edu-cards">
+          <div class="edu-card glass-card">
+            <div class="edu-icon"><i class="fa fa-university"></i></div>
+            <div class="edu-info">
+              <h3>Elektronik Mühendisliği Lisansı</h3>
+              <p class="edu-meta">
+                Lisans · Elektrik - Elektronik Mühendisliği
+              </p>
+              <p class="edu-desc">
+                Elektronik Mühendisliği alanında lisans programı
+              </p>
+            </div>
+            <div class="edu-cert">
+              <div class="cert-placeholder">
+                <div id="cert1-placeholder" class="cert-upload-area">
+                  <img
+                    class="zoomable"
+                    src="lis.jpeg"
+                    alt="bachlor"
+                    style="width: 100%; border-radius: 8px"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="edu-card glass-card">
+            <div class="edu-icon"><i class="fa fa-university"></i></div>
+            <div class="edu-info">
+              <h3>Elektronik Mühendisliği Yüksek Lisansı</h3>
+              <p class="edu-meta">
+                Yüksek Lisans · Elektrik - Elektronik Mühendisliği
+              </p>
+              <p class="edu-desc">
+                Elektronik Mühendisliği alanında yüksek lisans programı
+              </p>
+            </div>
+            <div class="edu-cert">
+              <div class="cert-placeholder">
+                <div id="cert1-placeholder" class="cert-upload-area">
+                  <img
+                    class="zoomable"
+                    src="fe.jpeg"
+                    alt="master"
+                    style="width: 100%; border-radius: 8px"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="edu-card glass-card">
+            <div class="edu-icon"><i class="fa fa-briefcase"></i></div>
+            <div class="edu-info">
+              <h3>İşletme Yönetimi Yüksek Lisansı</h3>
+              <p class="edu-meta">E-Ticaret Uzmanlığı</p>
+              <p class="edu-desc">
+                E-Ticaret uzmanlığında İşletme Yönetimi yüksek lisans programı
+              </p>
+            </div>
+            <div class="edu-cert">
+              <div class="cert-placeholder">
+                <div id="cert1-placeholder" class="cert-upload-area">
+                  <img
+                    class="zoomable"
+                    src="ta.jpeg"
+                    alt="master"
+                    style="width: 100%; border-radius: 8px"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interests -->
+    <section class="section-panel glass-panel" id="interests">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title"><i class="fa fa-heart"></i> İlgi Alanları</h2>
+      <div class="section-content">
+        <div class="interests-grid">
+          <div class="interest-block glass-card">
+            <h3 class="interest-cat"><i class="fa fa-running"></i> Spor</h3>
+            <div class="interest-items">
+              <div class="interest-tag">
+                <i class="fa fa-yin-yang"></i> Aikido
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-fist-raised"></i> Tekvando
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-star"></i> Ninjutsu
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-hand-rock"></i> Wing Chun
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-basketball-ball"></i> Basketbol
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-table-tennis"></i> Tenis
+              </div>
+            </div>
+          </div>
+
+          <div class="interest-block glass-card">
+            <h3 class="interest-cat"><i class="fa fa-palette"></i> Sanat</h3>
+            <div class="interest-arts">
+              <div class="art-item">
+                <div class="art-icon"><i class="fa fa-pen-nib"></i></div>
+                <div class="art-info">
+                  <h4>Hat Sanatı</h4>
+                  <p>İran Hat Sanatçıları Derneği'nden üstün diploma sahibi</p>
+                  <span class="badge">Üstün Diploma</span>
+                </div>
+              </div>
+              <div class="art-item">
+                <div class="art-icon"><i class="fa fa-music"></i></div>
+                <div class="art-info">
+                  <h4>Müzik</h4>
+                  <p>
+                    Enstrümanlar: Tar, Sitar, Tombak, Darbuka, Akordeon, Piyano,
+                    Def
+                  </p>
+                  <p>Beste ve Vokallik</p>
+                  <div class="instrument-icons">
+                    <span title="Tar"></span>
+                    <span title="Sitar"></span>
+                    <span title="Tombak"></span>
+                    <span title="Piyano"></span>
+                    <span title="Akordeon"></span>
+                    <span title="Def"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="arts-gallery">
+          <iframe src="carousel.html?set=1"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Arts Activities -->
+    <section class="section-panel glass-panel" id="arts">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title">
+        <i class="fa fa-music"></i> Sanatsal Faaliyetler
+      </h2>
+      <div class="section-content">
+        <div class="arts-timeline">
+          <div class="timeline-item glass-card">
+            <div class="timeline-icon"><i class="fa fa-guitar"></i></div>
+            <div class="timeline-content">
+              <h3>Takht-e Jamshid Grubu'nda Müzisyenlik ve İşbirliği</h3>
+              <p>
+                Usta <strong>Masoud Habibi</strong> yönetiminde çeşitli
+                konserler
+              </p>
+              <p>İran'da <strong>Bijan Kamkar</strong>'ın vokalliğiyle</p>
+              <span class="timeline-badge"
+                ><i class="fa fa-map-marker-alt"></i> İran</span
+              >
+            </div>
+          </div>
+          <div class="timeline-item glass-card">
+            <div class="timeline-icon"><i class="fa fa-globe"></i></div>
+            <div class="timeline-content">
+              <h3>Türkiye Konserleri ve Festivalleri</h3>
+              <p>
+                Türkiye'de çeşitli konser ve festivallerde müzik performansları
+              </p>
+              <span class="timeline-badge"
+                ><i class="fa fa-map-marker-alt"></i> Türkiye</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="arts-gallery">
+          <iframe src="carousel.html?set=2"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section-panel glass-panel" id="skills">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title">
+        <i class="fa fa-cogs"></i> Uzmanlıklar ve Öne Çıkan Projeler
+      </h2>
+      <div class="section-content">
+        <div class="skills-expertise">
+          <div
+            class="skill-block glass-card"
+            style="border: 5px solid rgba(201, 168, 76, 0.35)"
+          >
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Proje Yönetimi</h3>
+            </div>
+            <p>Proje Yönetimi</p>
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i>Iran Khodro'da otomotiv boya
+                hatlarında yirmi'den fazla elektrik projesinin yönetimi - İran
+              </li>
+            </ul>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 92%"></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-block glass-card"
+            style="border: 5px solid rgba(201, 168, 76, 0.35)"
+          >
+            <div class="skill-header">
+              <div class="skill-icon elec"><i class="fa fa-microchip"></i></div>
+              <h3>Elektronik</h3>
+            </div>
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> Dijital ve analog devre
+                tasarımı
+              </li>
+              <li>
+                <i class="fa fa-check-circle"></i> Mikrodenetleyicilerle kontrol
+                devresi tasarımı ve yapımı
+              </li>
+              <li>
+                <i class="fa fa-check-circle"></i> Arduino ile devre tasarımı
+              </li>
+            </ul>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 95%"></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-block glass-card"
+            style="border: 5px solid rgba(201, 168, 76, 0.35)"
+          >
+            <div class="skill-header">
+              <div class="skill-icon soft"><i class="fa fa-code"></i></div>
+              <h3>Yazılım</h3>
+            </div>
+            <ul class="skill-list">
+              <li><i class="fa fa-check-circle"></i> Web sitesi tasarımı</li>
+              <li>
+                <i class="fa fa-check-circle"></i> Python ile yazılım projeleri
+              </li>
+              <li>
+                <i class="fa fa-check-circle"></i> HTML, CSS, JavaScript,
+                nodejs, mongoDB, Express js, react, tailwind, bootstrap
+              </li>
+            </ul>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          <!----------------اضافه کن برای ستونی شدن-->
+        </div>
+
+        <h3 class="projects-section-title">
+          <i class="fa fa-folder-open"></i> Notable Projects
+        </h3>
+        <div class="skills-grid">
+          <!----------------اضافه کن برای ستونی شدن-->
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Ses Spektrogram Cihazı</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> Yüksek Lisans tezi projesi
+                olarak
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Elektronik</span>
+              <span>Yazılım</span><span>Arayüz Devreleri</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>İran Müziği Kendi Kendine Öğretim Cihazı</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> Patent tescilli kendi kendine
+                öğretim müzik cihazının tasarımı, üretimi ve imalatı
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Elektronik</span>
+              <span style="color: white">Tescilli Patent</span
+              ><span>Müzik ve Elektroniğin Birleşimi</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Elektronik Org Cihazı</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> Lisans tezi projesi olarak
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Elektronik</span><span>Donanım</span> <span>Yazılım</span
+              ><span>Mikrodenetleyici</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Otomatik Renk Değiştirici Cihaz</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> Otomotiv boya hatlarında
+                otomatik renk değiştirici cihazın tasarımı ve üretimi
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Elektronik</span><span>Donanım</span> <span>Robotik</span
+              ><span>PLC</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Ses Mikseri Cihazı</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> Sokak müzisyenleri için cep
+                tipi mikserin tasarımı ve üretimi
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Elektronik</span><span>Müzik</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Taşınabilir Pil Cihazı</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> Sokak müzisyenlerine özel
+                power bank
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Elektronik</span><span>Müzik</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Preamp ve Ekolayzer Cihazı</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i>
+                Çeşitli müzik aletleri için ses preamp ve ekolayzer tasarımı ve
+                üretimi
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Elektronik</span><span>Müzik</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>Yazılım</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i>
+                Python ile kurumsal web siteleri, portföy siteleri ve yazılım
+                projelerinin geliştirilmesi
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>Python</span><span>Yazılım</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses -->
+    <section class="section-panel glass-panel" id="courses">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title">
+        <i class="fa fa-certificate"></i> Tamamlanan Kurslar
+      </h2>
+      <div class="section-content">
+        <div class="kurs-cards">
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (9).jpeg"
+                alt="ATM Operatörlüğü"
+              />
+              <figcaption>
+                <h3>ATM Operatörlüğü</h3>
+                <p class="kurs-meta">Düzenleyen : Bilişim Hizmetleri Şirketi</p>
+                <p class="kurs-desc">Kurs süresi : 8 saat</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (6).jpeg"
+                alt="MicroMaster Commissioning"
+              />
+              <figcaption>
+                <h3>MicroMaster Commissioning</h3>
+                <p class="kurs-meta">Düzenleyen : Siemens Almanya</p>
+                <p class="kurs-desc">Kurs süresi : iki gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (4).jpeg" alt="PMBOK" />
+              <figcaption>
+                <h3>PMBOK Proje Yönetimi</h3>
+                <p class="kurs-meta">Düzenleyen : PMP Iran</p>
+                <p class="kurs-desc">Kurs süresi : iki gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (3).jpeg"
+                alt="Industrial Ethernet"
+              />
+              <figcaption>
+                <h3>Industrial Ethernet</h3>
+                <p class="kurs-meta">Düzenleyen : Siemens Almanya</p>
+                <p class="kurs-desc">Kurs süresi : yedi gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (35).jpeg"
+                alt="Eurotherm"
+              />
+              <figcaption>
+                <h3>Eurotherm Device 2000Series</h3>
+                <p class="kurs-meta">Düzenleyen : Eurotherm İngiltere</p>
+                <p class="kurs-desc">Kurs süresi : bir gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (33).jpeg"
+                alt="Eurotherm"
+              />
+              <figcaption>
+                <h3>Profibus</h3>
+                <p class="kurs-meta">Düzenleyen : Eurotherm İngiltere</p>
+                <p class="kurs-desc">Kurs süresi : bir gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (32).jpeg"
+                alt="Eurotherm"
+              />
+              <figcaption>
+                <h3>Control Basics</h3>
+                <p class="kurs-meta">Düzenleyen : Eurotherm İngiltere</p>
+                <p class="kurs-desc">Kurs süresi : bir gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (28).jpeg"
+                alt="Eurotherm device"
+              />
+              <figcaption>
+                <h3>Eurotherm Device 2604/2704Series</h3>
+                <p class="kurs-meta">Düzenleyen : Eurotherm İngiltere</p>
+                <p class="kurs-desc">Kurs süresi : iki gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (31).jpeg"
+                alt="PT/ED plant"
+              />
+              <figcaption>
+                <h3>PT/ED plant</h3>
+                <p class="kurs-meta">Düzenleyen : Eisenmann Almanya</p>
+                <p class="kurs-desc">Kurs süresi : beş gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (30).jpeg"
+                alt="FieldBus foundation"
+              />
+              <figcaption>
+                <h3>FieldBus foundation</h3>
+                <p class="kurs-meta">
+                  Düzenleyen : Shipping and transport college
+                </p>
+                <p class="kurs-desc">Kurs süresi : beş gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (27).jpeg"
+                alt="Advanced Excel"
+              />
+              <figcaption>
+                <h3>İleri Excel Kursu</h3>
+                <p class="kurs-meta">
+                  Düzenleyen : Sharif Sanayi Üniversitesi Jihad Akademisi
+                </p>
+                <p class="kurs-desc">Kurs süresi : 30 saat</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (11).jpeg"
+                alt="Endüstriyel Proje Fizibilite"
+              />
+              <figcaption>
+                <h3>Endüstriyel Proje Fizibilite Analizi</h3>
+                <p class="kurs-meta">
+                  Düzenleyen : İran Sanayi Eğitim ve Araştırma Merkezi
+                </p>
+                <p class="kurs-desc">Kurs süresi : 32 saat</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (10).jpeg"
+                alt="Pazarlama Yönetimi"
+              />
+              <figcaption>
+                <h3>Pazarlama Yönetimi</h3>
+                <p class="kurs-meta">
+                  Düzenleyen : 3. Uluslararası Pazarlama Konferansı
+                </p>
+                <p class="kurs-desc">Kurs süresi : 18 saat</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (8).jpeg" alt="EPC" />
+              <figcaption>
+                <h3>EPC Sözleşmelerinde Maliyet Tahmin Yöntemleri</h3>
+                <p class="kurs-meta">Düzenleyen : Fragastaran Şirketi</p>
+                <p class="kurs-desc">Kurs süresi : 8 saat</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (24).jpeg"
+                alt="Auto color changer"
+              />
+              <figcaption>
+                <h3>Auto color changer</h3>
+                <p class="kurs-meta">
+                  Düzenleyen : Uluslararası Boya Otomasyonu Konferansı
+                </p>
+                <p class="kurs-desc">Kurs süresi : 8 saat</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (34).jpeg" alt="SMAR" />
+              <figcaption>
+                <h3>Profibus Kontrol Sistemi Smar</h3>
+                <p class="kurs-meta">Düzenleyen : Smar Iran</p>
+                <p class="kurs-desc">Kurs süresi : 48 saat</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (22).jpeg"
+                alt="simatic S7"
+              />
+              <figcaption>
+                <h3>Simatic S7 programming</h3>
+                <p class="kurs-meta">Düzenleyen : Siemens Almanya</p>
+                <p class="kurs-desc">Kurs süresi : 4 gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (21).jpeg"
+                alt="Industrial Ethernet"
+              />
+              <figcaption>
+                <h3>Simatic S7 Industrial Ethernet</h3>
+                <p class="kurs-meta">Düzenleyen : Siemens Almanya</p>
+                <p class="kurs-desc">Kurs süresi : 8 gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (19).jpeg" alt="Burner" />
+              <figcaption>
+                <h3>Eclipse Burner</h3>
+                <p class="kurs-meta">Düzenleyen : Eclipse Almanya</p>
+                <p class="kurs-desc">Kurs süresi : 3 gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (12).jpeg" alt="ICTINQA" />
+              <figcaption>
+                <h3>ICTINQA concepts and model</h3>
+                <p class="kurs-meta">Düzenleyen : BEC Group</p>
+                <p class="kurs-desc">Kurs süresi : 1 gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (17).jpeg"
+                alt="PT/ED paint line"
+              />
+              <figcaption>
+                <h3>PT/ED paint line</h3>
+                <p class="kurs-meta">Düzenleyen : DÜRR Almanya</p>
+                <p class="kurs-desc">Kurs süresi : 11 gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (16).jpeg"
+                alt="Denetim İlkeleri"
+              />
+              <figcaption>
+                <h3>Denetim İlkeleri</h3>
+                <p class="kurs-meta">
+                  Düzenleyen : İran Sanayi Eğitim ve Araştırma Merkezi
+                </p>
+                <p class="kurs-desc">Kurs süresi : 16 saat</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (15).jpeg"
+                alt="Müzakere İlke ve Teknikleri"
+              />
+              <figcaption>
+                <h3>Müzakere İlke ve Teknikleri</h3>
+                <p class="kurs-meta">
+                  Düzenleyen : Sanayi Yönetim Organizasyonu
+                </p>
+                <p class="kurs-desc">Kurs süresi : 8 saat</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (14).jpeg"
+                alt="Karar Yönetimi"
+              />
+              <figcaption>
+                <h3>Karar Yönetimi</h3>
+                <p class="kurs-meta">Düzenleyen : TÜV Academy</p>
+                <p class="kurs-desc">Kurs süresi : üç gün</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (2).jpeg"
+                alt="Temel PLC Kursu"
+              />
+              <figcaption>
+                <h3>Temel PLC Kursu</h3>
+                <p class="kurs-meta">Düzenleyen : Kontrolnik Şirketi</p>
+                <p class="kurs-desc">Kurs süresi : 36 saat</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- work history -->
+    <section class="section-panel glass-panel" id="workHistory">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title"><i class="fa fa-rocket"></i> İş Geçmişi</h2>
+      <div class="section-content">
+        <div class="projects-grid">
+          <div class="project-card glass-card">
+            <h3>Parso Elektronik Şirketi</h3>
+            <p>Çalışma Alanı : UPS cihazları üretimi</p>
+            <div class="project-tags">
+              <span>Tasarım Uzmanı</span><span>Bir yıl</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <h3>Savt Azin Şirketi</h3>
+            <p>Çalışma Alanı : İnovasyon ve üretim</p>
+            <div class="project-tags">
+              <span>Genel Müdür</span><span>Bir buçuk yıl</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <h3>İran Bilişim Hizmetleri Şirketi</h3>
+            <p>Çalışma Alanı : Switch sistemleri ve bankacılık ekipmanları</p>
+            <div class="project-tags">
+              <span>ATM Bölümü Tasarım Uzmanı</span><span>İki yıl</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <h3>TAM Iran Khodro Şirketi</h3>
+            <p>Çalışma Alanı : Endüstriyel otomasyon (otomotiv sektörü)</p>
+            <div class="project-tags">
+              <span>Boya Hatları Elektrik Proje Yöneticisi</span
+              ><span>Yedi yıl</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <h3>Pardakht Novin Aryan Şirketi (Novin Ekonomi Bankası)</h3>
+            <p>Çalışma Alanı : Endüstriyel otomasyon (otomotiv sektörü)</p>
+            <div class="project-tags">
+              <span>ATM Grup Yöneticisi</span><span>Sekiz yıl</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <h3>Yas Arghavani Şirketi (Mellat Bankası)</h3>
+            <p>Çalışma Alanı : Endüstriyel otomasyon (otomotiv sektörü)</p>
+            <div class="project-tags">
+              <span
+                >Bankacılık Ekipmanları Kurulum ve Devreye Alma Grup
+                Yöneticisi</span
+              ><span>Bir buçuk yıl</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <h3>Iran Arqam Şirketi</h3>
+            <p>Çalışma Alanı : Endüstriyel otomasyon (otomotiv sektörü)</p>
+            <div class="project-tags">
+              <span>Ürün Yöneticisi</span><span>İki yıl</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <h3>Serbest Çalışma (Freelance)</h3>
+            <p>Çalışma Alanı : Elektronik tasarım ve web sitesi</p>
+            <div class="project-tags">
+              <span>Şu anda devam ediyor...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resim büyütme için -->
+    <div id="lightbox" class="lightbox">
+      <button class="close-btn lightbox-close">
+        <i class="fa fa-times"></i>
+      </button>
+      <img id="lightbox-img" src="" />
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
