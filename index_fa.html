@@ -1,0 +1,1359 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="google" content="notranslate" />
+    <title>پرتفولیو</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;900&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- ===== هدر ثابت موبایل ===== -->
+    <header class="mobile-header">
+      <div class="mobile-avatar">
+        <img src="Mammad.jpg" alt="محمدرضا عموئیان" />
+      </div>
+      <div class="mobile-header-text">
+        <div class="mobile-header-name">محمدرضا عموئیان</div>
+        <div class="mobile-header-title">
+          مهندس الکترونیک | مدیر پروژه | هنرمند
+        </div>
+      </div>
+      <button
+        class="lang-switcher"
+        id="langBtn"
+        onclick="switchLang()"
+        title="Switch Language"
+      >
+        FA
+      </button>
+    </header>
+
+    <style>
+      .lang-switcher {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(201, 168, 76, 0.7);
+        background: rgba(20, 18, 14, 0.65);
+        color: rgba(201, 168, 76, 0.95);
+        font-family: "Playfair Display", serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        flex-shrink: 0;
+        margin-right: 6px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(8px);
+        transition:
+          transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 0.22s ease,
+          background 0.2s ease,
+          color 0.2s ease;
+        user-select: none;
+        outline: none;
+        z-index: 9999;
+      }
+      .lang-switcher:hover {
+        transform: scale(1.13);
+        box-shadow:
+          0 6px 22px rgba(201, 168, 76, 0.55),
+          0 2px 12px rgba(0, 0, 0, 0.55);
+        background: rgba(201, 168, 76, 0.18);
+        color: #f0d97a;
+        border-color: rgba(201, 168, 76, 1);
+      }
+      .lang-switcher:active {
+        transform: scale(1.1);
+      }
+
+      .desktop-lang-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 14px 0 8px;
+      }
+
+      .desktop-lang-switcher {
+        margin-right: 0;
+        width: 42px;
+        height: 42px;
+        font-size: 12px;
+      }
+    </style>
+    <script>
+      // ====================== LANGUAGE SWITCHER - FINAL FIXED ======================
+      // ====================== LANGUAGE SWITCHER - FIXED ======================
+      const _langs = ["FA", "EN", "TR"];
+      const _files = ["index_fa.html", "index.html", "index_tr.html"];
+
+      function getCurrentLangIndex() {
+        const path = window.location.pathname.toLowerCase();
+        if (path.includes("index_fa.html") || path.includes("fa")) return 0;
+        if (path.includes("index_tr.html") || path.includes("tr")) return 2;
+        return 1;
+      }
+
+      let _cur = getCurrentLangIndex();
+
+      window.switchLang = function () {
+        console.log("%c🔄 Switching from:", "color: orange", _langs[_cur]);
+
+        _cur = (_cur + 1) % 3;
+
+        console.log("%c→ Going to:", "color: lime", _langs[_cur]);
+
+        // فقط ناوبری انجام شود — متن دکمه را اینجا تغییر نده
+        setTimeout(() => {
+          window.location.href = _files[_cur];
+        }, 180);
+      };
+
+      // بروزرسانی دکمه فقط هنگام لود صفحه
+      function updateLangButtons() {
+        _cur = getCurrentLangIndex();
+        const mobileBtn = document.getElementById("langBtn");
+        const desktopBtn = document.getElementById("langBtnDesktop");
+
+        if (mobileBtn) mobileBtn.textContent = _langs[_cur];
+        if (desktopBtn) desktopBtn.textContent = _langs[_cur];
+
+        console.log(
+          "%c📍 Page loaded with language:",
+          "color: gold",
+          _langs[_cur],
+        );
+      }
+
+      document.addEventListener("DOMContentLoaded", updateLangButtons);
+      window.addEventListener("load", updateLangButtons);
+    </script>
+    <!-- ===== فوتر ثابت موبایل (شبکه‌های اجتماعی) ===== -->
+    <footer class="mobile-footer">
+      <div class="mobile-footer-label">شبکه‌های اجتماعی</div>
+      <div class="mobile-footer-socials">
+        <a
+          href="https://wa.me/00905312691609"
+          target="_blank"
+          class="social-btn whatsapp"
+          title="واتساپ"
+        >
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a
+          href="https://youtube.com/@Amoeyan46"
+          target="_blank"
+          class="social-btn youtube"
+          title="یوتیوب"
+        >
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a
+          href="https://github.com/yourusername"
+          target="_blank"
+          class="social-btn github"
+          title="گیت‌هاب"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+        <a
+          href="https://linkedin.com/in/yourprofile"
+          target="_blank"
+          class="social-btn linkedin"
+          title="لینکداین"
+        >
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="tel:00905312691609" class="social-btn phone" title="تماس">
+          <i class="fa fa-phone"></i>
+        </a>
+        <a
+          href="mailto:Amoeyan.music@gmail.com"
+          class="social-btn email"
+          title="ایمیل"
+        >
+          <i class="fa fa-envelope"></i>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Fixed Background (SVG graphic + optional photo) -->
+    <div class="bg-fixed">
+      <img src="bg4.jpg" alt="background" class="bg-image" />
+      <div class="bg-overlay"></div>
+    </div>
+
+    <!-- Left Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <div class="profile-section">
+          <div class="avatar-ring">
+            <img src="Mammad.jpg" alt="محمد رضا عموئیان" class="avatar-img" />
+          </div>
+          <h2 class="profile-name">محمدرضا عموئیان</h2>
+          <p class="profile-title">مهندس الکترونیک | مدیر پروژه | هنرمند</p>
+
+          <!-- Desktop Language Switcher -->
+          <div class="desktop-lang-wrapper">
+            <button
+              class="lang-switcher desktop-lang-switcher"
+              id="langBtnDesktop"
+              onclick="switchLang()"
+              title="Switch Language"
+            >
+              EN
+            </button>
+          </div>
+
+          <div class="profile-divider"></div>
+
+          <ul class="profile-info">
+            <li>
+              <i class="fa fa-map-marker-alt"></i> ساکن : ترکیه - استانبول
+            </li>
+            <li><i class="fa fa-phone"></i> 00905312691609</li>
+            <li><i class="fa fa-envelope"></i>AmoeyanM@gmail.com</li>
+          </ul>
+
+          <!-- <div class="profile-divider" style="margin-top:14px"></div> -->
+          <div class="profile-divider" style="margin-top: 20px"></div>
+          <!-- Social Icons -->
+          <div class="social-icons">
+            <a
+              href="https://wa.me/00905312691609"
+              target="_blank"
+              class="social-btn whatsapp"
+              title="واتساپ"
+            >
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a
+              href="https://youtube.com/@Amoeyan46"
+              target="_blank"
+              class="social-btn youtube"
+              title="یوتیوب"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              class="social-btn github"
+              title="گیت‌هاب"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://linkedin.com/in/yourprofile"
+              target="_blank"
+              class="social-btn linkedin"
+              title="لینکداین"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <!-- <a
+              href="tel:00905312691609"
+              class="social-btn phone"
+              title="00905312691609"
+            >
+              <i class="fa fa-phone"></i>
+            </a>
+            <a
+              href="mailto:Amoeyan.music@gmail.com"
+              class="social-btn email"
+              title="Amoeyan.music@gmail.com"
+            >
+              <i class="fa fa-envelope"></i>
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Circular nav attached to right edge of left sidebar -->
+    <nav class="half-circle-nav" id="halfNav">
+      <div class="nav-toggle" id="navToggle" title="منو">
+        <span></span><span></span><span></span>
+      </div>
+
+      <ul class="nav-items" id="navItems">
+        <li class="nav-item" data-section="aboutme" style="--i: 0">
+          <button onclick="openSection('aboutme')">
+            <i class="fa fa-address-card"></i>
+            <!--fa-user-->
+            <span>درباه من</span>
+          </button>
+        </li>
+        <li class="nav-item" data-section="education" style="--i: 1">
+          <button onclick="openSection('education')">
+            <i class="fa fa-graduation-cap"></i>
+            <span>تحصیلات</span>
+          </button>
+        </li>
+
+        <li class="nav-item" data-section="skills" style="--i: 2">
+          <button onclick="openSection('skills')">
+            <i class="fa fa-cogs"></i>
+            <span>تخصص </span>
+          </button>
+        </li>
+
+        <li class="nav-item" data-section="courses" style="--i: 4">
+          <button onclick="openSection('courses')">
+            <i class="fa fa-certificate"></i>
+            <span>دوره‌ها</span>
+          </button>
+        </li>
+        <li class="nav-item" data-section="workHistory" style="--i: 5">
+          <button onclick="openSection('workHistory')">
+            <i class="fa fa-rocket"></i>
+            <span>سوابق کاری</span>
+          </button>
+        </li>
+
+        <li class="nav-item" data-section="interests" style="--i: 6">
+          <button onclick="openSection('interests')">
+            <i class="fa fa-heart"></i>
+            <span>علائق</span>
+          </button>
+        </li>
+        <li class="nav-item" data-section="arts" style="--i: 7">
+          <button onclick="openSection('arts')">
+            <i class="fa fa-music"></i>
+            <span>فعالیت هنری</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Hero area -->
+    <main class="main-content">
+      <div class="hero-text">
+        <h1 class="hero-title reveal-text">خوش آمدید</h1>
+        <p class="hero-sub reveal-text-delay">
+          برای مشاهده بخش‌های مختلف، از منوی سمت چپ استفاده کنید
+        </p>
+        <div class="hero-dots"><span></span><span></span><span></span></div>
+      </div>
+    </main>
+
+    <!-- MODAL OVERLAY -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-circle-bg" id="modalCircleBg"></div>
+    </div>
+
+    <!-- SECTION PANELS -->
+
+    <!-- About me -->
+    <section class="section-panel glass-panel" id="aboutme">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+
+      <div class="about-header">
+        <div class="about-title-icon">
+          <i
+            class="fa fa-user"
+            style="color: rgba(201, 168, 76, 0.9); font-size: 18px"
+          ></i>
+        </div>
+        <h1>درباره من</h1>
+      </div>
+
+      <div class="about-body">
+        <div class="about-block accent-gold">
+          <div class="block-label">
+            <span class="block-label-dot"></span>تخصص فنی
+          </div>
+          <p class="block-text">
+            مهندس الکترونیک (کارشناس ارشد) و توسعه‌دهنده نرم‌افزار هستم و در عین
+            حال کارشناس ارشد مدیریت بازرگانی با گرایش تجارت الکترونیک؛ متمرکز بر
+            حل چالش‌های پیچیده در تقاطع الکترونیک، سخت‌افزار، نرم‌افزار و مدیریت
+            بالاخص تلاقی موسیقی و الکترونیک. تخصص اصلی‌ام در طراحی مدارات آنالوگ
+            و دیجیتال با تمرکز بر مهندسی صوت — تشخیص، تولید و فیلترینگ سیگنال —
+            و کار با میکروکنترلرهاست.
+          </p>
+          <div class="tags-row">
+            <span class="tag tag-gold">مدارات آنالوگ</span>
+            <span class="tag tag-gold">مدارات دیجیتال</span>
+            <span class="tag tag-gold">مهندسی صوت</span>
+            <span class="tag tag-gold">میکروکنترلر</span>
+            <span class="tag tag-blue">Python</span>
+            <span class="tag tag-blue">Frontend</span>
+          </div>
+        </div>
+
+        <div class="about-block accent-teal">
+          <div class="block-label" style="color: rgba(80, 210, 165, 0.7)">
+            <span
+              class="block-label-dot"
+              style="background: rgba(80, 210, 165, 0.6)"
+            ></span
+            >تجربه مدیریتی
+          </div>
+          <p class="block-text">
+            مسیر شغلی من ترکیبی از خلق فنی و تفکر مدیریتی است. مدیریت پروژه‌های
+            کلان صنعتی مانند خطوط رنگ ایران‌خودرو، مدیریت محصول، و نصب و نگهداری
+            شبکه‌های خودپرداز به من آموخته که چگونه یک ایده فنی را از روی کاغذ
+            تا پیاده‌سازی در مقیاس بزرگ هدایت کنم.
+          </p>
+        </div>
+
+        <div class="about-block accent-soft">
+          <div class="block-label" style="color: rgba(140, 180, 240, 0.7)">
+            <span
+              class="block-label-dot"
+              style="background: rgba(140, 180, 240, 0.5)"
+            ></span
+            >دنیای خارج از مهندسی
+          </div>
+          <div class="interest-grid">
+            <div class="interest-item">
+              🎵
+              <div class="interest-text">
+                <strong>موسیقی</strong>تسلط بر ۸ ساز · تدریس ۶ ساز · آهنگسازی
+              </div>
+            </div>
+            <div class="interest-item">
+              ✒️
+              <div class="interest-text">
+                <strong>خطاطی</strong>بیان هنری و خلاقانه
+              </div>
+            </div>
+            <div class="interest-item">
+              🥋
+              <div class="interest-text">
+                <strong>ورزش‌های رزمی</strong>تمرکز و انضباط فردی
+              </div>
+            </div>
+            <div class="interest-item">
+              🏀
+              <div class="interest-text">
+                <strong>بسکتبال · تنیس</strong>پویایی و تیم‌کاری
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section-panel glass-panel" id="education">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title">
+        <i class="fa fa-graduation-cap"></i> تحصیلات
+      </h2>
+      <div class="section-content">
+        <div class="edu-cards">
+          <div class="edu-card glass-card">
+            <div class="edu-icon"><i class="fa fa-university"></i></div>
+            <div class="edu-info">
+              <h3>کارشناسی مهندسی الکترونیک</h3>
+              <p class="edu-meta">لیسانس · مهندسی برق - الکترونیک</p>
+              <p class="edu-desc">دوره کارشناسی در رشته مهندسی الکترونیک</p>
+            </div>
+            <div class="edu-cert">
+              <div class="cert-placeholder">
+                <div id="cert1-placeholder" class="cert-upload-area">
+                  <img
+                    class="zoomable"
+                    src="lis.jpeg"
+                    alt="bachlor"
+                    style="width: 100%; border-radius: 8px"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="edu-card glass-card">
+            <div class="edu-icon"><i class="fa fa-university"></i></div>
+            <div class="edu-info">
+              <h3>کارشناسی ارشد مهندسی الکترونیک</h3>
+              <p class="edu-meta">فوق لیسانس · مهندسی برق - الکترونیک</p>
+              <p class="edu-desc">
+                دوره کارشناسی ارشد در رشته مهندسی الکترونیک
+              </p>
+            </div>
+            <div class="edu-cert">
+              <div class="cert-placeholder">
+                <div id="cert1-placeholder" class="cert-upload-area">
+                  <img
+                    class="zoomable"
+                    src="fe.jpeg"
+                    alt="master"
+                    style="width: 100%; border-radius: 8px"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="edu-card glass-card">
+            <div class="edu-icon"><i class="fa fa-briefcase"></i></div>
+            <div class="edu-info">
+              <h3>کارشناسی ارشد مدیریت بازرگانی</h3>
+              <p class="edu-meta">گرایش تجارت الکترونیکی</p>
+              <p class="edu-desc">
+                دوره کارشناسی ارشد مدیریت بازرگانی گرایش تجارت الکترونیکی
+              </p>
+            </div>
+            <div class="edu-cert">
+              <div class="cert-placeholder">
+                <div id="cert1-placeholder" class="cert-upload-area">
+                  <img
+                    class="zoomable"
+                    src="ta.jpeg"
+                    alt="master"
+                    style="width: 100%; border-radius: 8px"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interests -->
+    <section class="section-panel glass-panel" id="interests">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title"><i class="fa fa-heart"></i> علائق</h2>
+      <div class="section-content">
+        <div class="interests-grid">
+          <div class="interest-block glass-card">
+            <h3 class="interest-cat"><i class="fa fa-running"></i> ورزش</h3>
+            <div class="interest-items">
+              <div class="interest-tag">
+                <i class="fa fa-yin-yang"></i> آیکیدو
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-fist-raised"></i> تکواندو
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-star"></i> نینجوتسو
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-hand-rock"></i> وینگ چون
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-basketball-ball"></i> بسکتبال
+              </div>
+              <div class="interest-tag">
+                <i class="fa fa-table-tennis"></i> تنیس
+              </div>
+            </div>
+          </div>
+
+          <div class="interest-block glass-card">
+            <h3 class="interest-cat"><i class="fa fa-palette"></i> هنر</h3>
+            <div class="interest-arts">
+              <div class="art-item">
+                <div class="art-icon"><i class="fa fa-pen-nib"></i></div>
+                <div class="art-info">
+                  <h4>خوشنویسی</h4>
+                  <p>دارنده مدرک عالی از انجمن خوشنویسان ایران</p>
+                  <span class="badge">مدرک عالی</span>
+                </div>
+              </div>
+              <div class="art-item">
+                <div class="art-icon"><i class="fa fa-music"></i></div>
+                <div class="art-info">
+                  <h4>موسیقی</h4>
+                  <p>
+                    نوازندگی: تار، سه‌تار، تمبک، داربوکا، آکاردئون، پیانو، دف
+                  </p>
+                  <p>آهنگسازی و خوانندگی</p>
+                  <div class="instrument-icons">
+                    <span title="تار"></span>
+                    <span title="سه‌تار"></span>
+                    <span title="تمبک"></span>
+                    <span title="پیانو"></span>
+                    <span title="آکاردئون"></span>
+                    <span title="دف"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="arts-gallery">
+          <iframe src="carousel.html?set=1"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Arts Activities -->
+    <section class="section-panel glass-panel" id="arts">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title"><i class="fa fa-music"></i> فعالیت‌های هنری</h2>
+      <div class="section-content">
+        <!-- <div class="arts-bg-placeholder">
+        <img src="arts-bg.jpg" alt="" class="arts-bg-img" onerror="this.style.display='none'" />
+         <div class="arts-bg-text" id="artsBgText">تصویر پس‌زمینه</div> 
+      </div> -->
+        <div class="arts-timeline">
+          <div class="timeline-item glass-card">
+            <div class="timeline-icon"><i class="fa fa-guitar"></i></div>
+            <div class="timeline-content">
+              <h3>نوازندگی و همکاری در گروه تخت جمشید</h3>
+
+              <p>
+                اجرای چند کنسرت به سرپرستی استاد <strong>مسعود حبیبی</strong>
+              </p>
+              <p>با خوانندگی <strong>بیژن کامکار</strong> در ایران</p>
+              <span class="timeline-badge"
+                ><i class="fa fa-map-marker-alt"></i> ایران</span
+              >
+            </div>
+          </div>
+          <div class="timeline-item glass-card">
+            <div class="timeline-icon"><i class="fa fa-globe"></i></div>
+            <div class="timeline-content">
+              <h3>کنسرت‌ها و جشنواره‌های ترکیه</h3>
+              <p>اجرای موسیقی در چندین کنسرت و جشنواره در ترکیه</p>
+              <span class="timeline-badge"
+                ><i class="fa fa-map-marker-alt"></i> ترکیه</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="arts-gallery">
+          <iframe src="carousel.html?set=2"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section-panel glass-panel" id="skills">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title">
+        <i class="fa fa-cogs"></i> تخصص ها و پروژه های شاخص
+      </h2>
+      <div class="section-content">
+        <div class="skills-expertise">
+          <div
+            class="skill-block glass-card"
+            style="border: 5px solid rgba(201, 168, 76, 0.35)"
+          >
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>مدیریت پروژه</h3>
+            </div>
+            <p>مدیریت پروژه</p>
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i>مدیریت بیش از بیست پروژه
+                الکتریکال رنگ خودرو در شرکت ایران خودرو- ایران
+              </li>
+            </ul>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 92%"></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-block glass-card"
+            style="border: 5px solid rgba(201, 168, 76, 0.35)"
+          >
+            <div class="skill-header">
+              <div class="skill-icon elec"><i class="fa fa-microchip"></i></div>
+              <h3>الکترونیک</h3>
+            </div>
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> طراحی مدارات دیجیتال و آنالوگ
+              </li>
+              <li>
+                <i class="fa fa-check-circle"></i> طراحی و ساخت مدارات کنترل با
+                میکروکنترلرها
+              </li>
+              <li>
+                <i class="fa fa-check-circle"></i> طراحی مدارات با آردوئینو
+              </li>
+            </ul>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 95%"></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-block glass-card"
+            style="border: 5px solid rgba(201, 168, 76, 0.35)"
+          >
+            <div class="skill-header">
+              <div class="skill-icon soft"><i class="fa fa-code"></i></div>
+              <h3>نرم‌افزار</h3>
+            </div>
+            <ul class="skill-list">
+              <li><i class="fa fa-check-circle"></i> طراحی وب‌سایت</li>
+              <li>
+                <i class="fa fa-check-circle"></i> پروژه‌های نرم‌افزاری با
+                پایتون
+              </li>
+              <li>
+                <i class="fa fa-check-circle"></i> HTML, CSS, JavaScript,
+                nodejs, mongoDB, Express js, react, tailwind, bootstrap
+              </li>
+            </ul>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 85%"></div>
+            </div>
+          </div>
+
+          <!----------------اضافه کن برای ستونی شدن-->
+        </div>
+
+        <h3 class="projects-section-title">
+          <i class="fa fa-folder-open"></i> Notable Projects
+        </h3>
+        <div class="skills-grid">
+          <!----------------اضافه کن برای ستونی شدن-->
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>دستگاه اسپکتروگرام صوتی</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> به عنوان پروژه کارشناسی ارشد
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>الکترونیک</span>
+              <span> نر م افزار </span><span> مدارات واسطه </span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <!-- <div class="project-badge">ثبت اختراع</div> -->
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>دستگاه خودآموز موسیقی ایرانی</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> طراحی، ساخت و تولید دستگاه
+                خودآموز موسیقی که به عنوان اختراع ثبت شده است
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>الکترونیک</span>
+              <span style="color: white">اختراع ثبت‌شده</span
+              ><span> تلفیق موسیقی و الکترونیک </span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>دستگاه ارگ الکترونیکی</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> به عنوان پروژه کارشناسی
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>الکترونیک</span><span>سخت افزار</span>
+              <span> نر م افزار </span><span> میکرو کنترولر</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>دستگاه تغییر رنگ اتوماتیک</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> طراحی و ساخت دستگاه تغییر رنگ
+                اتوماتیک در خطوط رنگ خودرو
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>الکترونیک</span><span>سخت افزار</span> <span> رباتیک </span
+              ><span> PLC</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>دستگاه میکسر صوتی</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> طراحی و ساخت دستگاه جیبی
+                میکسر برای نوازندگان خیابانی
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>الکترونیک</span><span>موسیقی</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>دستگاه باطری همراه</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i> پاور بانک اختصاصی نوازندگان
+                خیابانی
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>الکترونیک</span><span>موسیقی</span>
+            </div>
+          </div>
+
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>دستگاه پری امپ و اکولایزر</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i>
+                طراحی و ساخت ساخت پری‌امپ و اکولایزر صوتی برای انواع ساز موسیقی
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>الکترونیک</span><span>موسیقی</span>
+            </div>
+          </div>
+          <div class="skill-block project-card">
+            <div class="skill-header">
+              <div class="skill-icon pm"><i class="fa fa-tasks"></i></div>
+              <h3>نرم افزار</h3>
+            </div>
+
+            <ul class="skill-list">
+              <li>
+                <i class="fa fa-check-circle"></i>
+                پیاده سازی انواع وب سایت شرکتی و پرتفولیو و پروژه های نرم افزاری
+                با پایتون
+              </li>
+            </ul>
+            <div class="project-tags">
+              <span>پایتون</span><span>نرم افزار</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses -->
+    <section class="section-panel glass-panel" id="courses">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title">
+        <i class="fa fa-certificate"></i> دوره‌های گذرانده‌شده
+      </h2>
+      <div class="section-content">
+        <div class="kurs-cards">
+          <!-- کانتینر جدید -->
+          <!--  from here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (9).jpeg"
+                alt="اپراتوری دستگاه خودپرداز"
+              />
+              <figcaption>
+                <h3>اپراتوری دستگاه خودپرداز</h3>
+                <p class="kurs-meta">برگزار کننده : شرکت خدمات انفورماتیک</p>
+                <p class="kurs-desc">مدت دوره : 8 ساعت</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <!--  from here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (6).jpeg"
+                alt="MicroMaster Commissioning"
+              />
+              <figcaption>
+                <h3>MicroMaster Commissioning</h3>
+                <p class="kurs-meta">برگزار کننده : شرکت زیمنس آلمان</p>
+                <p class="kurs-desc">مدت دوره : دو روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <!--  from here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (4).jpeg" alt="PMBOK" />
+              <figcaption>
+                <h3>مدیریت پروژه PMBOK</h3>
+                <p class="kurs-meta">برگزار کننده : PMP Iran</p>
+                <p class="kurs-desc">مدت دوره : دو روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (3).jpeg"
+                alt="Industrial Ethenrt"
+              />
+              <figcaption>
+                <h3>Industrial Ethenrt</h3>
+                <p class="kurs-meta">برگزار کننده : شرکت زیمنس آلمان</p>
+                <p class="kurs-desc">مدت دوره : هفت روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (35).jpeg"
+                alt="Eurotherm"
+              />
+              <figcaption>
+                <h3>Eurotherm Device 2000Series</h3>
+                <p class="kurs-meta">برگزار کننده : شرکت یوروترم انگلیس</p>
+                <p class="kurs-desc">مدت دوره : یک روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (33).jpeg"
+                alt="Eurotherm"
+              />
+              <figcaption>
+                <h3>Profibus</h3>
+                <p class="kurs-meta">برگزار کننده : شرکت یوروترم انگلیس</p>
+                <p class="kurs-desc">مدت دوره : یک روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (32).jpeg"
+                alt="Eurotherm"
+              />
+              <figcaption>
+                <h3>Control Basics</h3>
+                <p class="kurs-meta">برگزار کننده : شرکت یوروترم انگلیس</p>
+                <p class="kurs-desc">مدت دوره : یک روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (28).jpeg"
+                alt="Eurotherm device"
+              />
+              <figcaption>
+                <h3>Eurotherm Device 2604/2704Series</h3>
+                <p class="kurs-meta">برگزار کننده : شرکت یوروترم انگلیس</p>
+                <p class="kurs-desc">مدت دوره : دو روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (31).jpeg"
+                alt="PT/ED plant"
+              />
+              <figcaption>
+                <h3>PT/ED plant</h3>
+                <p class="kurs-meta">برگزار کننده : شرکت Eisenmann آلمان</p>
+                <p class="kurs-desc">مدت دوره : پنج روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (30).jpeg"
+                alt="FieldBus foundation"
+              />
+              <figcaption>
+                <h3>FieldBus foundation</h3>
+                <p class="kurs-meta">
+                  برگزار کننده : شرکت Shipping and transport college
+                </p>
+                <p class="kurs-desc">مدت دوره : پنج روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (27).jpeg"
+                alt="Advanced Excel"
+              />
+              <figcaption>
+                <h3>دوره اکسل پیشرفته</h3>
+                <p class="kurs-meta">برگزار کننده : جهاد دانشگاهی صنعتی شریف</p>
+                <p class="kurs-desc">مدت دوره : 30 ساعت</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (11).jpeg"
+                alt="امکان سنجی پروژه های صنعتی"
+              />
+              <figcaption>
+                <h3>امکان سنجی پروژه های صنعتی</h3>
+                <p class="kurs-meta">
+                  برگزار کننده :مرکز آموزش و تحقیقات صنعت ایران
+                </p>
+                <p class="kurs-desc">مدت دوره : 32 ساعت</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (10).jpeg"
+                alt="مدیریت بازاریابی "
+              />
+              <figcaption>
+                <h3>مدیریت بازاریابی</h3>
+                <p class="kurs-meta">
+                  برگزار کننده :سومین کنفرانس بین المللی بازاریابی
+                </p>
+                <p class="kurs-desc">مدت دوره : 18 ساعت</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (8).jpeg" alt="EPC " />
+              <figcaption>
+                <h3>روشهای برآورد هزینه در راردادهای EPC</h3>
+                <p class="kurs-meta">برگزار کننده :شرکت فراگستران</p>
+                <p class="kurs-desc">مدت دوره : 8 ساعت</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (24).jpeg"
+                alt="Auto color changer"
+              />
+              <figcaption>
+                <h3>Auto color changer</h3>
+                <p class="kurs-meta">
+                  برگزار کننده :کنفرانس بین المللی اتوماسیون رنگ
+                </p>
+                <p class="kurs-desc">مدت دوره : 8 ساعت</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (34).jpeg" alt="SMAR" />
+              <figcaption>
+                <h3>پروفیباس کنترول سیستم اسمار</h3>
+                <p class="kurs-meta">برگزار کننده : Smar Iran</p>
+                <p class="kurs-desc">مدت دوره : 48 ساعت</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (22).jpeg"
+                alt="simatic S7"
+              />
+              <figcaption>
+                <h3>Simatic S7 programming</h3>
+                <p class="kurs-meta">برگزار کننده : شرکت زیمنس آلمان</p>
+                <p class="kurs-desc">مدت دوره : 4 روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (21).jpeg"
+                alt="Industrial Ethernet"
+              />
+              <figcaption>
+                <h3>Simatic S7 Industrial Ethernet</h3>
+                <p class="kurs-meta">برگزار کننده : شرکت زیمنس آلمان</p>
+                <p class="kurs-desc">مدت دوره :8 روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (19).jpeg" alt="Burner" />
+              <figcaption>
+                <h3>Eclipse Burner</h3>
+                <p class="kurs-meta">برگزار کننده : شرکت اکلیپس آلمان</p>
+                <p class="kurs-desc">مدت دوره :3 روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img class="zoomable" src="./cert/cert (12).jpeg" alt="ICTINQA" />
+              <figcaption>
+                <h3>ICTINQA concepts and model</h3>
+                <p class="kurs-meta">برگزار کننده : BEC Group</p>
+                <p class="kurs-desc">مدت دوره : 1 روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (17).jpeg"
+                alt="PT/ED paint line"
+              />
+              <figcaption>
+                <h3>PT/ED paint line</h3>
+                <p class="kurs-meta">برگزار کننده : شرکت DÜRR آلمان</p>
+                <p class="kurs-desc">مدت دوره :11 روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (16).jpeg"
+                alt="اصول سرپرستی"
+              />
+              <figcaption>
+                <h3>اصول سرپرستی</h3>
+                <p class="kurs-meta">
+                  برگزار کننده : مرکز آموزش و تحقیقات صنعتی ایران
+                </p>
+                <p class="kurs-desc">مدت دوره : 16 ساعت</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (15).jpeg"
+                alt="اصول و فنون مذاکره"
+              />
+              <figcaption>
+                <h3>اصول و فنون مذاکره</h3>
+                <p class="kurs-meta">برگزار کننده : سازمان مدیریت صنعتی</p>
+                <p class="kurs-desc">مدت دوره : 8 ساعت</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (14).jpeg"
+                alt="مدیریت تصمیم گیری"
+              />
+              <figcaption>
+                <h3>مدیریت تصمیم گیری</h3>
+                <p class="kurs-meta">برگزار کننده : TÜV Academy</p>
+                <p class="kurs-desc">مدت دوره : سه روز</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+          <div class="kurs-card glass-card">
+            <figure class="kurs-cert">
+              <img
+                class="zoomable"
+                src="./cert/cert (2).jpeg"
+                alt="Advanced Excel"
+              />
+              <figcaption>
+                <h3>دوره PLC مقدماتی</h3>
+                <p class="kurs-meta">برگزار کننده : شرکت کنترونیک</p>
+                <p class="kurs-desc">مدت دوره : 36 ساعت</p>
+              </figcaption>
+            </figure>
+          </div>
+          <!--  to here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- work history -->
+    <section class="section-panel glass-panel" id="workHistory">
+      <button class="close-btn" onclick="closeSection()">
+        <i class="fa fa-times"></i>
+      </button>
+      <h2 class="section-title"><i class="fa fa-rocket"></i> سوابق کاری</h2>
+      <div class="section-content">
+        <div class="projects-grid">
+          <div class="project-card glass-card">
+            <!-- <div class="project-icon"><i class="fa fa-industry"></i></div> -->
+            <h3>شرکت پرسو الکترونیک</h3>
+            <p>زمینه کاری : تولید دستگاه های UPS</p>
+            <div class="project-tags">
+              <span>کارشناس طراحی </span><span>یکسال </span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <!-- <div class="project-icon"><i class="fa fa-industry"></i></div> -->
+            <h3>شرکت صوت آذین</h3>
+            <p>زمینه کاری : نوآوری و تولید</p>
+            <div class="project-tags">
+              <span>مدیر عامل</span><span> یکسال و نیم</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <!-- <div class="project-icon"><i class="fa fa-industry"></i></div> -->
+            <h3>شرکت خدمات انفورماتیک ایران</h3>
+            <p>زمینه کاری : سیستم های سوئیچ و تجهیزات بانکی</p>
+            <div class="project-tags">
+              <span>کارشناس طراحی بخش خودپرداز</span><span> دو سال</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <!-- <div class="project-icon"><i class="fa fa-industry"></i></div> -->
+            <h3>شرکت تام ایران خودرو</h3>
+            <p>زمینه کاری : اتوماسیون صنعتی ( صنعت خودرو )</p>
+            <div class="project-tags">
+              <span>مدیر پروژه الکتریکال خطوط رنگ</span><span>هفت سال</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <!-- <div class="project-icon"><i class="fa fa-industry"></i></div> -->
+            <h3>شرکت پرداخت نوین آرین ( بانک اقتصاد نوین)</h3>
+            <p>زمینه کاری : اتوماسیون صنعتی ( صنعت خودرو )</p>
+            <div class="project-tags">
+              <span>مدیر گروه خودپرداز </span><span>هشت سال</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <!-- <div class="project-icon"><i class="fa fa-industry"></i></div> -->
+            <h3>شرکت یاس ارغوانی ( بانک ملت)</h3>
+            <p>زمینه کاری : اتوماسیون صنعتی ( صنعت خودرو )</p>
+            <div class="project-tags">
+              <span>مدیر گروه نصب و راه اندازی ابزارهای بانکی </span
+              ><span>یک سال و نیم</span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <!-- <div class="project-icon"><i class="fa fa-industry"></i></div> -->
+            <h3>شرکت ایران ارقام)</h3>
+            <p>زمینه کاری : اتوماسیون صنعتی ( صنعت خودرو )</p>
+            <div class="project-tags">
+              <span>مدیر محصول </span><span>دو سال </span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card">
+            <!-- <div class="project-icon"><i class="fa fa-industry"></i></div> -->
+            <h3>فریلنس</h3>
+            <p>زمینه کاری : طراحی الکترونیکی و وب سایت )</p>
+            <div class="project-tags">
+              <span> در حال حاضر ...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- برای بزرگ شدن عکس با کلیک -->
+    <div id="lightbox" class="lightbox">
+      <button class="close-btn lightbox-close">
+        <i class="fa fa-times"></i>
+      </button>
+      <img id="lightbox-img" src="" />
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
