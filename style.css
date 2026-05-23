@@ -1857,7 +1857,8 @@ html[dir="ltr"] .block-label {
 }
 /* تنظیم چیدمان کارت‌های آموزشی متناسب با جهت صفحه */
 html[dir="rtl"] .edu-card {
-  grid-template-columns: auto 1fr 52px;
+  grid-template-columns: 52px 1fr 120px;
+  direction: rtl;
 }
 
 html[dir="ltr"] .edu-card {
@@ -1871,6 +1872,16 @@ html[dir="rtl"] .section-panel.active {
 /* تصحیح موقعیت آیکون در نسخه چپ‌چین */
 html[dir="ltr"] .edu-icon {
   order: -1;
+}
+/* در RTL: آیکون راست (order:1)، متن وسط (order:2)، عکس چپ (order:3) */
+html[dir="rtl"] .edu-icon {
+  order: 1;
+}
+html[dir="rtl"] .edu-info {
+  order: 2;
+}
+html[dir="rtl"] .edu-cert {
+  order: 3;
 }
 html[dir="ltr"] .section-panel .block-text,
 html[dir="ltr"] .section-panel p,
